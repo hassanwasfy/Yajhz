@@ -8,13 +8,15 @@ import androidx.navigation.compose.NavHost
 import com.abaferas.yajhz.ui.screens.home.addHomeRoute
 import com.abaferas.yajhz.ui.screens.login.addLoginRoute
 import com.abaferas.yajhz.ui.screens.signup.addSignUpRoute
+import com.abaferas.yajhz.ui.screens.splash.addSplashRoute
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 
 @Composable
 fun YajhzNavigationNavGraph() {
     NavHost(
         navController = LocalNavController.current,
-        startDestination = NavigationDestination.ScreenSignUp.route,
+        startDestination = NavigationDestination.ScreenSplash.route,
         enterTransition = {
             fadeIn(
                 tween(
@@ -30,6 +32,7 @@ fun YajhzNavigationNavGraph() {
             )
         }
     ) {
+        addSplashRoute()
         addSignUpRoute()
         addLoginRoute()
         addHomeRoute()

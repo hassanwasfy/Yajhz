@@ -98,6 +98,8 @@ dependencies {
 
     implementation ("androidx.navigation:navigation-compose:2.7.6")
 
+    implementation ("com.google.accompanist:accompanist-systemuicontroller:0.27.0")
+
 
 
 }
