@@ -1,4 +1,4 @@
-package com.abaferas.yajhz
+package com.abaferas.yajhz.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
