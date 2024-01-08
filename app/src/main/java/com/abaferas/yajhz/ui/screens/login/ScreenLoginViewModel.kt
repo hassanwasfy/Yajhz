@@ -11,8 +11,6 @@ class ScreenLoginViewModel @Inject constructor(
     /*TODO Add you use cases*/
 ) : BaseViewModel<LoginUiState, LoginScreenUiEffect>(LoginUiState()), LoginScreenInteraction {
 
-    private val args: LoginScreenArgs = LoginScreenArgs(savedStateHandle = savedStateHandle)
-
     init {
         getData()
     }

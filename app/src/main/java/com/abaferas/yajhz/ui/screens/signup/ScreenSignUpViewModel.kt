@@ -11,7 +11,6 @@ class ScreenSignUpViewModel @Inject constructor(
     /*TODO Add you use cases*/
 ) : BaseViewModel<SignUpUiState, SignUpScreenUiEffect>(SignUpUiState()), SignUpScreenInteraction {
 
-    private val args: SignUpScreenArgs = SignUpScreenArgs(savedStateHandle = savedStateHandle)
 
     init {
         getData()

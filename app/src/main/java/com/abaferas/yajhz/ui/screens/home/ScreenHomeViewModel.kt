@@ -11,8 +11,6 @@ class ScreenHomeViewModel @Inject constructor(
     /*TODO Add you use cases*/
 ) : BaseViewModel<HomeUiState, HomeScreenUiEffect>(HomeUiState()), HomeScreenInteraction {
 
-    private val args: HomeScreenArgs = HomeScreenArgs(savedStateHandle = savedStateHandle)
-
     init {
         getData()
     }
