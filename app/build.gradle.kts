@@ -1,6 +1,9 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    kotlin("kapt")
+    id("com.google.dagger.hilt.android")
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -66,4 +69,25 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+
+    // Dependency Injection
+    implementation("com.google.dagger:hilt-android:2.48")
+    kapt("com.google.dagger:hilt-android-compiler:2.48")
+    implementation("androidx.hilt:hilt-work:1.1.0")
+    kapt("androidx.hilt:hilt-compiler:1.1.0")
+    implementation("androidx.work:work-runtime-ktx:2.9.0")
+    implementation("androidx.hilt:hilt-navigation-compose:1.1.0")
+
+    // Lifecycle
+    val lifecycleVersion = "2.6.2"
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycleVersion")
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion")
+    implementation ("androidx.lifecycle:lifecycle-runtime-compose:$lifecycleVersion")
+
+    implementation ("com.google.accompanist:accompanist-permissions:0.32.0")
+    implementation("io.coil-kt:coil-compose:2.5.0")
+}
+
+kapt {
+    correctErrorTypes = true
 }
