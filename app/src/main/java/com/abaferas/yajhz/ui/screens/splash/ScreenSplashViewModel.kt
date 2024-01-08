@@ -19,7 +19,7 @@ class ScreenSplashViewModel @Inject constructor(): ViewModel() {
     val effect = iEffect.asSharedFlow()
     init {
         viewModelScope.launch(Dispatchers.IO) {
-            delay(300)
+            delay(1500)
             iEffect.emit(SplashScreenUiEffect.NaveToSignUp)
         }
     }
