@@ -12,7 +12,8 @@ import retrofit2.http.POST
 
 interface ApiService {
 
-    //Auth
+
+    //region Auth
     @POST("login")
     suspend fun userLogin(@Body loginBody: LoginBody): Response<BaseResponse<AuthDto>>
 
@@ -21,5 +22,22 @@ interface ApiService {
 
     @GET("client-profile")
     suspend fun getClientProfile(): Response<BaseResponse<ClientProfileDto>>
+    //endregion
+
+
+    //region Home
+
+    //endregion
+
+    //region Cart
+
+    //endregion
+
+    //region Favorites
+
+    //endregion
+
+
+
 
 }
