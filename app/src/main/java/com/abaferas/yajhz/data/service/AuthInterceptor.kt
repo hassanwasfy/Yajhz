@@ -15,14 +15,3 @@ class AuthInterceptor(private val tokenProvider: TokenProvider) : Interceptor {
         return chain.proceed(newRequest)
     }
 }
-
-class TokenProvider(initialToken: String) {
-    private var token: String = initialToken
-    fun setToken(newToken: String) {
-        token = newToken
-    }
-
-    fun getToken(): String {
-        return token
-    }
-}
