@@ -21,7 +21,7 @@ data class ClientProfileDto(
     @SerializedName("balance")
     val balance: String? = null,
     @SerializedName("addresses")
-    val addresses: List<AddresseDto>?= emptyList(),
+    val addresses: List<AddresseDto>? = emptyList(),
     @SerializedName("token")
     val token: String? = null
 )

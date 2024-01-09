@@ -14,10 +14,8 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.CardElevation
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -37,7 +35,6 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.abaferas.yajhz.R
 import com.abaferas.yajhz.ui.composable.YajhzScaffold
 import com.abaferas.yajhz.ui.composable.YajhzTextField
-import com.abaferas.yajhz.ui.models.CategoriesItems
 import com.abaferas.yajhz.ui.navigation.NavigationHandler
 import com.abaferas.yajhz.ui.theme.Commons
 import com.abaferas.yajhz.ui.theme.color_beige

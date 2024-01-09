@@ -45,7 +45,7 @@ data class PopularSellerDto(
     @SerializedName("token")
     val token: String? = "",
     @SerializedName("information")
-    val information: Information? = Information(),
+    val information: Information,
     @SerializedName("product_categories")
     val productCategories: List<ProductCategoryDto> = listOf()
 ) {
