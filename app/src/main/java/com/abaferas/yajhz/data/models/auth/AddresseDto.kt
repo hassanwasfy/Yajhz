@@ -10,7 +10,7 @@ data class AddresseDto(
     @SerializedName("lng")
     val lng: String? = null,
     @SerializedName("address")
-    val address: Any? = null,
+    val address: String? = null,
     @SerializedName("street")
     val street: String? = null,
     @SerializedName("building")
@@ -18,8 +18,8 @@ data class AddresseDto(
     @SerializedName("apartment")
     val apartment: String? = null,
     @SerializedName("floor")
-    val floor: Any? = null,
+    val floor: Int? = null,
     @SerializedName("name")
-    val name: Any? = null
+    val name: String? = null
 )
 

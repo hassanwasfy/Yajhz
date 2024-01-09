@@ -20,7 +20,7 @@ data class AuthDto(
     @SerializedName("balance")
     val balance: Int? = null,
     @SerializedName("addresses")
-    val addresses: List<AddresseDto>? = null,
+    val addresses: List<AddresseDto> = emptyList(),
     @SerializedName("token")
     val token: String? = null
 )
