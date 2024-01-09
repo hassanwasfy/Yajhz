@@ -6,27 +6,30 @@ import com.abaferas.yajhz.data.models.auth.ClientProfileDto
 import com.abaferas.yajhz.data.models.auth.LoginBody
 import com.abaferas.yajhz.data.models.auth.SignUpBody
 import com.abaferas.yajhz.data.models.categories.PopularSellerDto
+import com.abaferas.yajhz.domain.models.Auth
+import com.abaferas.yajhz.domain.models.Client
+import com.abaferas.yajhz.domain.models.PopularSeller
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.POST
 
 interface IRepository {
-    suspend fun userLogin(loginBody: LoginBody): AuthDto
-    suspend fun userSignUp(signUpBody: SignUpBody): AuthDto
-    suspend fun getClientProfile(): ClientProfileDto
+    suspend fun userLogin(loginBody: LoginBody): Auth
+    suspend fun userSignUp(signUpBody: SignUpBody): Auth
+    suspend fun getClientProfile(): Client
 
     //region Home
-    suspend fun getHomePopularSeller(): PopularSellerDto
-    suspend fun getHomeTrendingSeller(): PopularSellerDto
-    suspend fun getHomeBaseCategory(): PopularSellerDto
-    suspend fun getBaseCategory(): PopularSellerDto
+    suspend fun getHomePopularSeller(): PopularSeller
+    suspend fun getHomeTrendingSeller(): PopularSeller
+    suspend fun getHomeBaseCategory(): PopularSeller
+    suspend fun getBaseCategory(): PopularSeller
     //endregion
 
     //region Cart
-    suspend fun addItemToCart(): PopularSellerDto
+    suspend fun addItemToCart(): PopularSeller
     //endregion
 
     //region Favorites
-    suspend fun addItemToFavorites(): PopularSellerDto
+    suspend fun addItemToFavorites(): PopularSeller
     //endregion
 }

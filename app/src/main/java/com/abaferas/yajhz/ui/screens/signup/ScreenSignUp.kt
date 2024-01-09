@@ -1,7 +1,9 @@
 package com.abaferas.yajhz.ui.screens.signup
 
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -17,6 +19,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.Text
@@ -32,6 +35,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -44,6 +48,7 @@ import com.abaferas.yajhz.ui.composable.YajhzEnterDataWithLabel
 import com.abaferas.yajhz.ui.composable.YajhzScaffold
 import com.abaferas.yajhz.ui.modifiers.innerShadow
 import com.abaferas.yajhz.ui.navigation.NavigationHandler
+import com.abaferas.yajhz.ui.screens.login.navigateToLogin
 import com.abaferas.yajhz.ui.theme.Commons
 import com.abaferas.yajhz.ui.theme.color_beige
 import com.abaferas.yajhz.ui.theme.color_gray
@@ -63,8 +68,11 @@ fun ScreenSignUp(
     ScreenSignUpContent(state = state, interaction = screenSignUpViewModel)
     NavigationHandler(effects = screenSignUpViewModel.effect) { effect, controller ->
         when (effect) {
-            is SignUpScreenUiEffect.NavigateUp -> {
-                controller.popBackStack()
+            SignUpScreenUiEffect.Login -> {
+                controller.navigateToLogin()
+            }
+            SignUpScreenUiEffect.SignUp -> {
+                controller.navigateToSignUp()
             }
         }
     }
@@ -140,36 +148,36 @@ fun ScreenSignUpContent(
                         ) {
                             YajhzEnterDataWithLabel(
                                 label = "Name.",
-                                value = "",
+                                value = state.name,
                                 placeHolder = "Write 14 character",
-                                onValueChange = {}
+                                onValueChange = interaction::onNameValueChange
                             )
                             YajhzEnterDataWithLabel(
                                 label = "Email.",
-                                value = "",
+                                value = state.email,
                                 placeHolder = "write your email",
-                                onValueChange = {}
+                                onValueChange = interaction::onEmailChange
                             )
                             YajhzEnterDataWithLabel(
                                 label = "Phone Number.",
-                                value = "",
+                                value = state.phoneNumber,
                                 placeHolder = "Write 11 numbers",
-                                onValueChange = {}
+                                onValueChange = interaction::onPhoneChange
                             )
                             YajhzEnterDataWithLabel(
                                 label = "Password.",
-                                value = "",
+                                value = state.password,
                                 placeHolder = "Write 8 character at least",
-                                onValueChange = {}
+                                onValueChange = interaction::onPasswordChange
                             )
                             YajhzEnterDataWithLabel(
                                 label = "Confirm Password.",
-                                value = "",
+                                value = state.confirmPassword,
                                 placeHolder = "Write your password again",
-                                onValueChange = {}
+                                onValueChange = interaction::onPasswordConfirmChange
                             )
                             Button(
-                                onClick = { /*TODO*/ },
+                                onClick = { interaction.onClickSignUp() },
                                 modifier = Modifier
                                     .fillMaxWidth(0.75f)
                                     .align(Alignment.CenterHorizontally)
@@ -180,18 +188,30 @@ fun ScreenSignUpContent(
                                 ),
                                 shape = RoundedCornerShape(CornerSize(12.dp))
                             ) {
-                                Text(
-                                    text = "Sign up",
-                                    modifier = Modifier.padding(
-                                        vertical = 8.dp,
-                                    ),
-                                    fontFamily = Commons,
-                                    fontWeight = FontWeight.Medium,
-                                    fontSize = 24.sp,
-                                )
+                                AnimatedVisibility(visible = state.isLogging) {
+                                    CircularProgressIndicator(
+                                        color = Color.White, trackColor = Color.Transparent,
+                                        strokeCap = StrokeCap.Round, strokeWidth = 1.dp
+                                    )
+                                }
+                                AnimatedVisibility(visible = !state.isLogging) {
+                                    Text(
+                                        text = "Sign up",
+                                        modifier = Modifier
+                                            .padding(
+                                                vertical = 8.dp,
+                                            )
+                                            .clickable { interaction.onClickLogIn() },
+                                        fontFamily = Commons,
+                                        fontWeight = FontWeight.Medium,
+                                        fontSize = 24.sp,
+                                    )
+                                }
                             }
                             Row(
-                                modifier = Modifier.fillMaxWidth().padding(top = 24.dp),
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(top = 24.dp),
                                 horizontalArrangement = Arrangement.Center,
                                 verticalAlignment = Alignment.CenterVertically
                             ) {
