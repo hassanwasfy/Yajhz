@@ -49,7 +49,7 @@ fun ScreenSplash(
     NavigationHandler(effects = screenSplashViewModel.effect) { effect, controller ->
         when (effect) {
             SplashScreenUiEffect.NaveToSignUp -> {
-                controller.navigateToSignUp()
+                //controller.navigateToSignUp()
             }
         }
     }

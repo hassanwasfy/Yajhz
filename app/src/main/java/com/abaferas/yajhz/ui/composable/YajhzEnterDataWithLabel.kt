@@ -57,22 +57,6 @@ fun YajhzEnterDataWithLabel(
             ),
 
     ) {
-        TextField(
-            supportingText = { Text(text = "ASAS")},
-            value = value,
-            onValueChange = onValueChange,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(vertical = 4.dp, horizontal = 8.dp),
-            colors = TextFieldDefaults.colors(
-                unfocusedPlaceholderColor = color_gray_light,
-                focusedPlaceholderColor = color_gray_light,
-                focusedContainerColor = Color.Transparent,
-                unfocusedContainerColor = Color.Transparent,
-                focusedIndicatorColor = Color.Transparent,
-                unfocusedIndicatorColor = Color.Transparent
-            ),
-            placeholder = { Text(text = placeHolder) }
-        )
+        YajhzTextField(value, placeHolder, onValueChange)
     }
 }

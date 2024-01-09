@@ -17,7 +17,7 @@ fun YajhzScaffold(
     isError: Boolean,
     onLoading: @Composable () -> Unit = { YajhzLoading() },
     onError: @Composable () -> Unit = { YajhzError() },
-    containerColor: Color = color_beige,
+    containerColor: Color = Color.White,
     topAppbar: @Composable () -> Unit = {},
     bottomAppbar: @Composable () -> Unit = {},
     floatingActionButton: @Composable () -> Unit = {},
