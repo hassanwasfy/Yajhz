@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -191,7 +192,8 @@ fun ScreenSignUpContent(
                                 AnimatedVisibility(visible = state.isLogging) {
                                     CircularProgressIndicator(
                                         color = Color.White, trackColor = Color.Transparent,
-                                        strokeCap = StrokeCap.Round, strokeWidth = 1.dp
+                                        strokeCap = StrokeCap.Round, strokeWidth = 4.dp,
+                                        modifier = Modifier.size(48.dp)
                                     )
                                 }
                                 AnimatedVisibility(visible = !state.isLogging) {
