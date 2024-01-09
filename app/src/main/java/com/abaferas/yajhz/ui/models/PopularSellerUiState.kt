@@ -23,7 +23,7 @@ data class PopularSellerUiState(
     val categories: List<Category>,
     val token: String,
     val information: Information,
-    val productCategories: List<ProductCategory>
+    val productCategories: List<ProductCategoryUiState>
 ) {
     data class Category(
         val id: Int,

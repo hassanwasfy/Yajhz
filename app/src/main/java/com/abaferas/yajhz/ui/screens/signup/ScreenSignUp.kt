@@ -13,6 +13,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -43,8 +45,10 @@ import com.abaferas.yajhz.ui.composable.YajhzScaffold
 import com.abaferas.yajhz.ui.modifiers.innerShadow
 import com.abaferas.yajhz.ui.navigation.NavigationHandler
 import com.abaferas.yajhz.ui.theme.Commons
+import com.abaferas.yajhz.ui.theme.color_beige
 import com.abaferas.yajhz.ui.theme.color_gray
 import com.abaferas.yajhz.ui.theme.color_gray_light
+import com.abaferas.yajhz.ui.theme.color_green
 import com.abaferas.yajhz.ui.theme.linear_beige
 import com.abaferas.yajhz.ui.theme.linear_brush
 import com.abaferas.yajhz.ui.theme.shadowBlack
@@ -164,6 +168,49 @@ fun ScreenSignUpContent(
                                 placeHolder = "Write your password again",
                                 onValueChange = {}
                             )
+                            Button(
+                                onClick = { /*TODO*/ },
+                                modifier = Modifier
+                                    .fillMaxWidth(0.75f)
+                                    .align(Alignment.CenterHorizontally)
+                                    .padding(top = 36.dp),
+                                colors = ButtonDefaults.buttonColors(
+                                    containerColor = color_green,
+                                    contentColor = Color.White
+                                ),
+                                shape = RoundedCornerShape(CornerSize(12.dp))
+                            ) {
+                                Text(
+                                    text = "Sign up",
+                                    modifier = Modifier.padding(
+                                        vertical = 8.dp,
+                                    ),
+                                    fontFamily = Commons,
+                                    fontWeight = FontWeight.Medium,
+                                    fontSize = 24.sp,
+                                )
+                            }
+                            Row(
+                                modifier = Modifier.fillMaxWidth().padding(top = 24.dp),
+                                horizontalArrangement = Arrangement.Center,
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Text(
+                                    text = "have an account ?",
+                                    modifier = Modifier,
+                                    fontFamily = Commons,
+                                    fontWeight = FontWeight.Normal,
+                                    fontSize = 10.sp,
+                                )
+                                Text(
+                                    text = "Login",
+                                    modifier = Modifier.padding(start = 8.dp),
+                                    fontFamily = Commons,
+                                    fontWeight = FontWeight.Bold,
+                                    fontSize = 10.sp,
+                                    color = color_beige
+                                )
+                            }
                         }
                     }
                 }

@@ -63,13 +63,6 @@ fun ScreenHomeContent(
     interaction: HomeScreenInteraction
 ) {
 
-    val categoriesItems = listOf(
-        CategoriesItems(1,R.drawable.cake,"cake"),
-        CategoriesItems(1,R.drawable.supermarket,"SuperMarket"),
-        CategoriesItems(1,R.drawable.ramen,"Restaurants"),
-        CategoriesItems(1,R.drawable.opera_cake,"House Made")
-    )
-
     YajhzScaffold(
         isLoading = state.isLoading,
         isError = state.error.isError,
@@ -183,7 +176,7 @@ fun ScreenHomeContent(
                     horizontalArrangement = Arrangement.spacedBy(8.dp),
                     contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
                 ){
-                    items(categoriesItems){
+                    items(6){
                         Card(
                             modifier = Modifier
                                 .width(140.dp)
@@ -202,10 +195,10 @@ fun ScreenHomeContent(
                                         .size(90.dp)
                                         .align(Alignment.End)
                                         .padding(top = 4.dp),
-                                    painter = painterResource(id = it.image),
+                                    painter = painterResource(id = R.drawable.opera_cake),
                                     contentDescription = "")
                                 Text(
-                                    text = it.label,
+                                    text = "Label",
                                     modifier = Modifier
                                         .fillMaxWidth()
                                         .padding(start = 16.dp, bottom = 8.dp),

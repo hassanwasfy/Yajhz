@@ -25,7 +25,7 @@ fun YajhzNavigationNavGraph() {
     sysUiColor.setNavigationBarColor(color = color_beige)
     NavHost(
         navController = LocalNavController.current,
-        startDestination = NavigationDestination.ScreenHome.route,
+        startDestination = NavigationDestination.ScreenSplash.route,
         enterTransition = {
             scaleIn(
                 tween(

@@ -34,7 +34,7 @@ fun ScreenSplash(
         isError = false
     ){
         Column(
-            modifier = Modifier.fillMaxSize(),
+            modifier = Modifier.fillMaxSize().background(color_beige),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
@@ -49,7 +49,7 @@ fun ScreenSplash(
     NavigationHandler(effects = screenSplashViewModel.effect) { effect, controller ->
         when (effect) {
             SplashScreenUiEffect.NaveToSignUp -> {
-                //controller.navigateToSignUp()
+                controller.navigateToSignUp()
             }
         }
     }
