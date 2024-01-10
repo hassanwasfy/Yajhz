@@ -2,6 +2,9 @@ package com.abaferas.yajhz.ui.screens.home
 
 import com.abaferas.yajhz.ui.base.BaseUiState
 import com.abaferas.yajhz.ui.base.ErrorUiState
+import com.abaferas.yajhz.ui.models.HomeBaseCategoryUiState
+import com.abaferas.yajhz.ui.models.PopularSellerUiState
+import com.abaferas.yajhz.ui.models.TrendingSellerUiState
 
 
 data class HomeUiState(
@@ -10,7 +13,7 @@ data class HomeUiState(
     val name: String = "",
     val address: String = "",
     val searchValue: String = "",
-    val categoriesList: HomeCategoryUiState = HomeCategoryUiState(),
-    val popularList: List<PopularSellerUiState> = emptyList(),
-    val trendingList: List<PopularSellerUiState> = emptyList()
+    val categoriesList: HomeBaseCategoryUiState = HomeBaseCategoryUiState(),
+    val popularList: PopularSellerUiState = PopularSellerUiState(),
+    val trendingList: TrendingSellerUiState = TrendingSellerUiState()
 ) : BaseUiState

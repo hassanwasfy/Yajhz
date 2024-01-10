@@ -4,7 +4,7 @@ package com.abaferas.yajhz.ui.models
 import com.google.gson.annotations.SerializedName
 
 data class PopularSellerUiState(
-    val `data`: List<Data>,
+    val `data`: List<Data> = emptyList(),
 ) {
     data class Data(
         val id: Int,

@@ -2,7 +2,7 @@ package com.abaferas.yajhz.ui.models
 
 
 data class TrendingSellerUiState(
-    val `data`: List<Data>
+    val `data`: List<Data> = emptyList()
 ) {
     data class Data(
         val id: Int,
