@@ -48,3 +48,7 @@ fun PopularSellerDto.toDomainModel(): PopularSeller {
         }
     )
 }
+
+fun List<PopularSellerDto>.toDomain(): List<PopularSeller>{
+    return this.map { it.toDomainModel() }
+}

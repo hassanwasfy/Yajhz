@@ -48,3 +48,7 @@ fun PopularSeller.toUiState(): PopularSellerUiState {
         }
     )
 }
+
+fun List<PopularSeller>.toUiState(): List<PopularSellerUiState>{
+    return this.map { it.toUiState() }
+}

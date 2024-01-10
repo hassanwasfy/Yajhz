@@ -122,7 +122,7 @@ fun ScreenHomeContent(
                     fontWeight = FontWeight.Medium,
                     fontSize = 32.sp,
                     color = color_gray,
-                    text = "Hello Ahmed"
+                    text = "Hello ${state.name}"
                 )
                 Row(
                     verticalAlignment = Alignment.CenterVertically
@@ -135,7 +135,7 @@ fun ScreenHomeContent(
                         fontWeight = FontWeight.Normal,
                         fontSize = 16.sp,
                         color = color_gray,
-                        text = "Riyadh (15 - Jasmine neigh..."
+                        text = state.address
                     )
                     Icon(
                         modifier = Modifier
@@ -151,7 +151,7 @@ fun ScreenHomeContent(
                 Row(
                     modifier = Modifier.fillMaxWidth()
                 ) {
-                    YajhzTextField(value = "", placeHolder = "Search for fav food", onValueChange = {})
+                    YajhzTextField(value = "", placeHolder = "Search for fav food", onValueChange = interaction::onSearchValueChange)
                     Box(modifier = Modifier){
                         Icon(painter = painterResource(id = R.drawable.search_icon), contentDescription = "")
                     }

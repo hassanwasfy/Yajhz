@@ -5,9 +5,7 @@ import com.abaferas.yajhz.domain.models.HomeCategory
 
 fun HomeCategoryDto.toDomainModel(): HomeCategory {
     return HomeCategory(
-        items = this.data.map {
-            it.toDomainModel()
-        },
+        items = this.data.toDomain(),
         cartCount = this.cartCount ?: 0
     )
 }

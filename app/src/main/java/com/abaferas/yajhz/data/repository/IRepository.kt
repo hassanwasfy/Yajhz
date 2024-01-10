@@ -8,7 +8,9 @@ import com.abaferas.yajhz.data.models.auth.SignUpBody
 import com.abaferas.yajhz.data.models.categories.PopularSellerDto
 import com.abaferas.yajhz.domain.models.Auth
 import com.abaferas.yajhz.domain.models.Client
+import com.abaferas.yajhz.domain.models.HomeCategory
 import com.abaferas.yajhz.domain.models.PopularSeller
+import com.abaferas.yajhz.domain.models.ProductCategory
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.POST
@@ -19,10 +21,10 @@ interface IRepository {
     suspend fun getClientProfile(): Client
 
     //region Home
-    suspend fun getHomePopularSeller(): PopularSeller
-    suspend fun getHomeTrendingSeller(): PopularSeller
-    suspend fun getHomeBaseCategory(): PopularSeller
-    suspend fun getBaseCategory(): PopularSeller
+    suspend fun getHomePopularSeller(): List<PopularSeller>
+    suspend fun getHomeTrendingSeller(): List<PopularSeller>
+    suspend fun getHomeBaseCategory(): HomeCategory
+    suspend fun getBaseCategory(): List<ProductCategory>
     //endregion
 
     //region Cart

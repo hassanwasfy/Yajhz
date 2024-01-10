@@ -13,3 +13,7 @@ fun ProductCategoryDto.toDomainModel(): ProductCategory {
         nameEn = this.nameEn ?: ""
     )
 }
+
+fun List<ProductCategoryDto>.toDomain(): List<ProductCategory>{
+    return this.map { it.toDomainModel() }
+}

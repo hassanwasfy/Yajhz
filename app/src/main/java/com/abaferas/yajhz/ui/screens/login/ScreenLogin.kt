@@ -147,7 +147,7 @@ fun ScreenLoginContent(
                                 onValueChange = interaction::onPasswordChange
                             )
                             Button(
-                                onClick = interaction::onCLickSignUp ,
+                                onClick = interaction::onClickLogin ,
                                 modifier = Modifier
                                     .fillMaxWidth(0.40f)
                                     .align(Alignment.CenterHorizontally)
@@ -167,7 +167,7 @@ fun ScreenLoginContent(
                                 }
                                 AnimatedVisibility(visible = !state.isLogging) {
                                     Text(
-                                        text = "Sign up",
+                                        text = "Log in",
                                         modifier = Modifier
                                             .padding(
                                                 vertical = 8.dp,
@@ -176,6 +176,8 @@ fun ScreenLoginContent(
                                         fontFamily = Commons,
                                         fontWeight = FontWeight.Medium,
                                         fontSize = 24.sp,
+                                        maxLines = 1,
+                                        softWrap = false
                                     )
                                 }
                             }
