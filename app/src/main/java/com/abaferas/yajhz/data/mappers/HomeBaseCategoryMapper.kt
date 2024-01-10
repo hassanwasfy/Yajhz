@@ -9,12 +9,12 @@ fun HomeBaseCategoryDto.toDomainModel(): HomeBaseCategory {
     return HomeBaseCategory(
         data = this.data?.data?.map {
             HomeBaseCategory.Data(
-                id = it.id,
-                name = it.name,
-                image = it.image,
-                active = it.active,
-                nameAr = it.nameAr,
-                nameEn = it.nameEn
+                id = it.id ?: 0,
+                name = it.name ?: "",
+                image = it.image ?: "",
+                active = it.active ?: 0,
+                nameAr = it.nameAr ?: "",
+                nameEn = it.nameEn ?: ""
             )
         } ?: emptyList(),
         cartCount = this.data?.cartCount ?: 0

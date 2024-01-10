@@ -54,7 +54,7 @@ fun ScreenLogin(
 ) {
     val state = screenLoginViewModel.state.collectAsState().value
     ScreenLoginContent(state = state, interaction = screenLoginViewModel)
-    NavigationHandler(effects = screenLoginViewModel.effect) { effect, controller ->
+    NavigationHandler(effects = screenLoginViewModel.effect) { effect, controller, _ ->
         when (effect) {
             is LoginScreenUiEffect.Login -> {
                 controller.navigateToHome()

@@ -8,7 +8,7 @@ import com.abaferas.yajhz.ui.models.TrendingSellerUiState
 
 
 data class HomeUiState(
-    val isLoading: Boolean = true,
+    val isLoading: Boolean = false,
     val error: ErrorUiState = ErrorUiState(),
     val name: String = "",
     val address: String = "",

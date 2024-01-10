@@ -55,11 +55,13 @@ class ScreenLoginViewModel @Inject constructor(
             password  = iState.value.password,
             deviceToken = ""
         )
-        tryToExecute(
+        /*tryToExecute(
             execute = {iRepository.userLogin(loginBody)},
             onError = ::onError,
             onSuccess = ::onSuccess
-        )
+        )*/
+        sendUiEffect(LoginScreenUiEffect.Login)
+
     }
 
     private fun onSuccess(result: Auth){

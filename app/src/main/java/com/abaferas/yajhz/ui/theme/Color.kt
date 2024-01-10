@@ -15,6 +15,7 @@ val color_beige = Color(0xFFF2CE92)
 val color_green = Color(0xFF0A977F)
 val color_black = Color(0xFF1C1C1C)
 val color_gray = Color(0xFF484848)
+val color_gray_half = Color(0x80484848)
 val color_gray_light = Color(0x99C4C4C4)
 
 

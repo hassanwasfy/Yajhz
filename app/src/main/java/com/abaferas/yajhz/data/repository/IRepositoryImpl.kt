@@ -21,45 +21,65 @@ class IRepositoryImpl @Inject constructor(
     private val tokenProvider: TokenProvider
 ): IRepository {
     override suspend fun userLogin(loginBody: LoginBody): Auth {
-        val result = wrapBaseResponse { apiService.userLogin(loginBody) }.toDomainModel()
-        val address = if (result.addresses.isNotEmpty()) {
-            result.addresses.first().address
-        }else{
-            "No Address provided!"
-        }
-        tokenizeUserData(name = result.name, token = result.token,address = address)
-        return result
+/*        return try {
+            val request = apiService.userLogin(loginBody)
+            if (request.isSuccessful && request.body() != null){
+                if (request.body()!!.success){
+                    val result = request.body()!!.data
+                    val address = if (result.addresses.isNotEmpty()) {
+                        result.addresses.first().address } else { "No Address provided!" }
+                    tokenizeUserData(name = result.name ?: "", token = result.token ?: "",address = address ?: " ")
+                    result.toDomainModel()
+                }
+               else{
+                   throw YajhzException.NotAuthorized
+               }
+            }else{
+                throw YajhzException.Failure
+            }
+        }catch (e: Exception){
+            println(e.message.toString())
+            throw e
+        }*/
+        TODO("Not yet implemented")
+
     }
 
     override suspend fun userSignUp(signUpBody: SignUpBody): Auth {
-        val result = wrapBaseResponse { apiService.userSignUp(signUpBody) }.toDomainModel()
+        /*val result = wrapBaseResponse { apiService.userSignUp(signUpBody) }.toDomainModel()
         val address = if (result.addresses.isNotEmpty()) {
             result.addresses.first().address
         }else{
             "No Address provided!"
         }
         tokenizeUserData(name = result.name, token = result.token,address = address)
-        return result
+        return result*/
+        TODO("Not yet implemented")
     }
 
     override suspend fun getClientProfile(): Client {
-        return wrapBaseResponse { apiService.getClientProfile() }.toDomainModel()
+        //return wrapBaseResponse { apiService.getClientProfile() }.toDomainModel()
+        TODO("Not yet implemented")
     }
 
     override suspend fun getHomePopularSeller(): PopularSeller {
-        return wrapBaseResponse { apiService.getHomePopularSeller() }.toDomainModel()
+        //return wrapBaseResponse { apiService.getHomePopularSeller() }.toDomainModel()
+        TODO("Not yet implemented")
     }
 
     override suspend fun getHomeTrendingSeller(): TrendingSeller {
-        return wrapBaseResponse { apiService.getHomeTrendingSeller() }.toDomainModel()
+        //return wrapBaseResponse { apiService.getHomeTrendingSeller() }.toDomainModel()
+        TODO("Not yet implemented")
     }
 
     override suspend fun getHomeBaseCategory(): HomeBaseCategory {
-        return wrapBaseResponse { apiService.getHomeBaseCategory() }.toDomainModel()
+        //return wrapBaseResponse { apiService.getHomeBaseCategory() }.toDomainModel()
+        TODO("Not yet implemented")
     }
 
     override suspend fun getBaseCategory(): BaseCategory {
-        return wrapBaseResponse { apiService.getBaseCategory() }.toDomainModel()
+       // return wrapBaseResponse { apiService.getBaseCategory() }.toDomainModel()
+        TODO("Not yet implemented")
     }
 
     override suspend fun addItemToCart(): PopularSeller {
@@ -70,7 +90,7 @@ class IRepositoryImpl @Inject constructor(
         TODO("Not yet implemented")
     }
 
-    private suspend fun <T> wrapBaseResponse(
+    /*private suspend fun <T> wrapBaseResponse(
         response: suspend () -> Response<BaseResponse<T>>
     ): T {
         try {
@@ -97,7 +117,7 @@ class IRepositoryImpl @Inject constructor(
         } catch (e: UnknownHostException){
             throw YajhzException.UnknownHostException
         }
-    }
+    }*/
 
     private fun tokenizeUserData(name: String, token: String, address: String){
         tokenProvider.setToken(token)

@@ -68,7 +68,7 @@ fun ScreenSignUp(
 ) {
     val state = screenSignUpViewModel.state.collectAsState().value
     ScreenSignUpContent(state = state, interaction = screenSignUpViewModel)
-    NavigationHandler(effects = screenSignUpViewModel.effect) { effect, controller ->
+    NavigationHandler(effects = screenSignUpViewModel.effect) { effect, controller, _ ->
         when (effect) {
             is SignUpScreenUiEffect.Login -> {
                 controller.navigateToLogin()

@@ -1,5 +1,6 @@
 package com.abaferas.yajhz.ui.screens.home
 
+import android.util.Log
 import androidx.lifecycle.viewModelScope
 import com.abaferas.yajhz.data.repository.IRepository
 import com.abaferas.yajhz.data.repository.YajhzException
@@ -7,6 +8,7 @@ import com.abaferas.yajhz.data.service.TokenProvider
 import com.abaferas.yajhz.ui.base.BaseViewModel
 import com.abaferas.yajhz.ui.base.ErrorUiState
 import com.abaferas.yajhz.ui.mappers.toUiState
+import com.abaferas.yajhz.ui.mappers.toUiStateModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
@@ -26,7 +28,20 @@ class ScreenHomeViewModel @Inject constructor(
 
     override fun getData() {
         try {
-            viewModelScope.launch(Dispatchers.IO) {
+            /*viewModelScope.launch {
+                val cats = async {
+                    iRepository.getHomeBaseCategory()
+                }.await()
+                val pops = async {
+                    iRepository.getHomePopularSeller()
+                }.await()
+                Log.w("X-TEST", "getHomePopularSeller: $pops")
+                val tren = async {
+                    iRepository.getHomeTrendingSeller()
+                }.await()
+                Log.w("X-TEST", "getHomeTrendingSeller: $tren")
+            }*/
+            /*viewModelScope.launch(Dispatchers.IO) {
                 val categories = async { iRepository.getHomeBaseCategory() }
                 val popularSeller = async { iRepository.getHomePopularSeller() }
                 val trending = async { iRepository.getHomeTrendingSeller() }
@@ -37,12 +52,12 @@ class ScreenHomeViewModel @Inject constructor(
                         error = ErrorUiState(),
                         name = tokenProvider.getName(),
                         address = tokenProvider.getAddress(),
-                        categoriesList = categories.await().toUiState(),
-                        popularList = popularSeller.await().toUiState(),
-                        trendingList = trending.await().toUiState()
+                        categoriesList = categories.await().toUiStateModel(),
+                        popularList = popularSeller.await().toUiStateModel(),
+                        trendingList = trending.await().toUiStateModel()
                     )
                 }
-            }
+            }*/
         }catch (e: YajhzException){
             onError(e.msg)
         }
