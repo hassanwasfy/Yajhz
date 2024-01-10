@@ -6,5 +6,10 @@ import com.abaferas.yajhz.ui.base.ErrorUiState
 
 data class LoginUiState(
     val isLoading: Boolean = true,
-    val error: ErrorUiState = ErrorUiState()
+    val isLogging: Boolean = false,
+    val error: ErrorUiState = ErrorUiState(),
+    val email: String = "",
+    val emailError: ErrorUiState = ErrorUiState(),
+    val password: String = "",
+    val passwordError: ErrorUiState = ErrorUiState(),
 ) : BaseUiState

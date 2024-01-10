@@ -49,6 +49,7 @@ import com.abaferas.yajhz.ui.composable.YajhzEnterDataWithLabel
 import com.abaferas.yajhz.ui.composable.YajhzScaffold
 import com.abaferas.yajhz.ui.modifiers.innerShadow
 import com.abaferas.yajhz.ui.navigation.NavigationHandler
+import com.abaferas.yajhz.ui.screens.home.navigateToHome
 import com.abaferas.yajhz.ui.screens.login.navigateToLogin
 import com.abaferas.yajhz.ui.theme.Commons
 import com.abaferas.yajhz.ui.theme.color_beige
@@ -69,11 +70,11 @@ fun ScreenSignUp(
     ScreenSignUpContent(state = state, interaction = screenSignUpViewModel)
     NavigationHandler(effects = screenSignUpViewModel.effect) { effect, controller ->
         when (effect) {
-            SignUpScreenUiEffect.Login -> {
+            is SignUpScreenUiEffect.Login -> {
                 controller.navigateToLogin()
             }
-            SignUpScreenUiEffect.SignUp -> {
-                controller.navigateToSignUp()
+            is SignUpScreenUiEffect.SignUp -> {
+                controller.navigateToHome()
             }
         }
     }
@@ -226,7 +227,8 @@ fun ScreenSignUpContent(
                                 )
                                 Text(
                                     text = "Login",
-                                    modifier = Modifier.padding(start = 8.dp),
+                                    modifier = Modifier.padding(start = 8.dp)
+                                        .clickable { interaction.onClickLogIn() },
                                     fontFamily = Commons,
                                     fontWeight = FontWeight.Bold,
                                     fontSize = 10.sp,
