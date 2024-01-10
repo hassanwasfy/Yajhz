@@ -9,11 +9,7 @@ import com.abaferas.yajhz.data.service.ApiService
 import com.abaferas.yajhz.data.service.TokenProvider
 import com.abaferas.yajhz.domain.models.Auth
 import com.abaferas.yajhz.domain.models.Client
-import com.abaferas.yajhz.domain.models.HomeCategory
-import com.abaferas.yajhz.domain.models.PopularSeller
-import com.abaferas.yajhz.domain.models.ProductCategory
 import retrofit2.Response
-import java.net.SocketTimeoutException
 import java.net.UnknownHostException
 import javax.inject.Inject
 

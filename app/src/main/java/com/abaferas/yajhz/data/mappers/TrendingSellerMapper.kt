@@ -3,14 +3,16 @@ package com.abaferas.yajhz.data.mappers
 import com.abaferas.yajhz.data.models.categories.BaseCategoryDto
 import com.abaferas.yajhz.data.models.categories.HomeBaseCategoryDto
 import com.abaferas.yajhz.data.models.categories.PopularSellerDto
+import com.abaferas.yajhz.data.models.categories.TrendingSellerDto
 import com.abaferas.yajhz.domain.models.BaseCategory
 import com.abaferas.yajhz.domain.models.HomeBaseCategory
 import com.abaferas.yajhz.domain.models.PopularSeller
+import com.abaferas.yajhz.domain.models.TrendingSeller
 
-fun PopularSellerDto.toDomainModel(): PopularSeller {
-    return PopularSeller(
-        data = this.data?.data?.map {
-            PopularSeller.Data(
+fun TrendingSellerDto.toDomainModel(): TrendingSeller {
+    return TrendingSeller(
+        data = this.data.map {
+            TrendingSeller.Data(
                 id = it.id ?: 0,
                 name = it.name ?: "",
                 email = it.email ?: "",
@@ -18,7 +20,7 @@ fun PopularSellerDto.toDomainModel(): PopularSeller {
                 image = it.image ?: "",
                 logo = it.logo ?: "",
                 description = it.description ?: "",
-                distance = it.distance ?: 0,
+                distance = it.distance ?: "",
                 type = it.type ?: 0,
                 status = it.status ?: 0,
                 lat = it.lat ?: "",
@@ -30,15 +32,15 @@ fun PopularSellerDto.toDomainModel(): PopularSeller {
                 rate = it.rate ?: "",
                 isFavorite = it.isFavorite ?: false,
                 categories = it.categories?.map { category ->
-                    PopularSeller.Data.Category(
-                        id = category.id ?: 0,
-                        name = category.name ?: "",
-                        image = category.image ?: "",
-                        active = category.active ?: 0
+                    TrendingSeller.Data.Category(
+                        id = category?.id ?: 0,
+                        name = category?.name ?: "",
+                        image = category?.image ?: "",
+                        active = category?.active ?: 0
                     )
                 } ?: emptyList(),
                 token = it.token ?: "",
-                information = PopularSeller.Data.Information(
+                information = TrendingSeller.Data.Information(
                     id = it.information?.id ?: 0,
                     identityNumber = it.information?.identityNumber ?: "",
                     taxRecord = it.information?.taxRecord ?: "",
@@ -49,16 +51,16 @@ fun PopularSellerDto.toDomainModel(): PopularSeller {
                     vehicleRegistration = it.information?.vehicleRegistration ?: "",
                     drivingImage = it.information?.drivingImage ?: ""
                 ),
-                productCategories = it.productCategories?.map { pCategory ->
-                    PopularSeller.Data.ProductCategory(
-                        id = pCategory.id ?: 0,
-                        name = pCategory.name ?: "",
-                        active = pCategory.active ?: 0,
-                        nameAr = pCategory.nameAr ?: "",
-                        nameEn = pCategory.nameEn ?: ""
+                productCategories = it.productCategories?.map { pCat ->
+                    TrendingSeller.Data.ProductCategory(
+                        id = pCat?.id ?: 0,
+                        name = pCat?.name ?: "",
+                        active = pCat?.active ?: 0,
+                        nameAr = pCat?.nameAr ?: "",
+                        nameEn = pCat?.nameEn ?: ""
                     )
                 } ?: emptyList()
             )
-        } ?: emptyList()
+        }
     )
 }

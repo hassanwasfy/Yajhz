@@ -3,8 +3,8 @@ package com.abaferas.yajhz.domain.models
 
 import com.google.gson.annotations.SerializedName
 
-data class PopularSeller(
-    val `data`: List<Data>,
+data class TrendingSeller(
+    val `data`: List<Data>
 ) {
     data class Data(
         val id: Int,
@@ -14,7 +14,7 @@ data class PopularSeller(
         val image: String,
         val logo: String,
         val description: String,
-        val distance: Int,
+        val distance: String,
         val type: Int,
         val status: Int,
         val lat: String,
@@ -58,4 +58,3 @@ data class PopularSeller(
         )
     }
 }
-

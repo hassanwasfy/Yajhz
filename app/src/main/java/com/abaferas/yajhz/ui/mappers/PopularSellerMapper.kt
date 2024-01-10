@@ -1,6 +1,5 @@
 package com.abaferas.yajhz.ui.mappers
 
-import com.abaferas.yajhz.domain.models.PopularSeller
 import com.abaferas.yajhz.ui.models.PopularSellerUiState
 
 fun PopularSeller.toUiState(): PopularSellerUiState {

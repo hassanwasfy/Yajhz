@@ -5,9 +5,7 @@ import com.abaferas.yajhz.data.models.auth.LoginBody
 import com.abaferas.yajhz.data.models.auth.SignUpBody
 import com.abaferas.yajhz.data.models.auth.AuthDto
 import com.abaferas.yajhz.data.models.auth.ClientProfileDto
-import com.abaferas.yajhz.data.models.categories.HomeCategoryDto
 import com.abaferas.yajhz.data.models.categories.PopularSellerDto
-import com.abaferas.yajhz.data.models.categories.ProductCategoryDto
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET

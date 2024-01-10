@@ -1,19 +1,9 @@
 package com.abaferas.yajhz.data.repository
 
-import com.abaferas.yajhz.data.models.auth.AuthDto
-import com.abaferas.yajhz.data.models.auth.BaseResponse
-import com.abaferas.yajhz.data.models.auth.ClientProfileDto
 import com.abaferas.yajhz.data.models.auth.LoginBody
 import com.abaferas.yajhz.data.models.auth.SignUpBody
-import com.abaferas.yajhz.data.models.categories.PopularSellerDto
 import com.abaferas.yajhz.domain.models.Auth
 import com.abaferas.yajhz.domain.models.Client
-import com.abaferas.yajhz.domain.models.HomeCategory
-import com.abaferas.yajhz.domain.models.PopularSeller
-import com.abaferas.yajhz.domain.models.ProductCategory
-import retrofit2.Response
-import retrofit2.http.GET
-import retrofit2.http.POST
 
 interface IRepository {
     suspend fun userLogin(loginBody: LoginBody): Auth
