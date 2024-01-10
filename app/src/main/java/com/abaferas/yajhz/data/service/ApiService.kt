@@ -5,7 +5,11 @@ import com.abaferas.yajhz.data.models.auth.LoginBody
 import com.abaferas.yajhz.data.models.auth.SignUpBody
 import com.abaferas.yajhz.data.models.auth.AuthDto
 import com.abaferas.yajhz.data.models.auth.ClientProfileDto
+import com.abaferas.yajhz.data.models.categories.BaseCategoryDto
+import com.abaferas.yajhz.data.models.categories.HomeBaseCategoryDto
 import com.abaferas.yajhz.data.models.categories.PopularSellerDto
+import com.abaferas.yajhz.data.models.categories.TrendingSellerDto
+import com.abaferas.yajhz.domain.models.HomeBaseCategory
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -28,16 +32,16 @@ interface ApiService {
 
     //region Home
     @GET("popular-sellers")
-    suspend fun getHomePopularSeller(): Response<BaseResponse<List<PopularSellerDto>>>
+    suspend fun getHomePopularSeller(): Response<BaseResponse<PopularSellerDto>>
 
     @GET("trending-sellers")
-    suspend fun getHomeTrendingSeller(): Response<BaseResponse<List<PopularSellerDto>>>
+    suspend fun getHomeTrendingSeller(): Response<BaseResponse<TrendingSellerDto>>
 
     @GET("home-base-categories")
-    suspend fun getHomeBaseCategory(): Response<BaseResponse<HomeCategoryDto>>
+    suspend fun getHomeBaseCategory(): Response<BaseResponse<HomeBaseCategoryDto>>
 
     @GET("base-categories")
-    suspend fun getBaseCategory(): Response<BaseResponse<List<ProductCategoryDto>>>
+    suspend fun getBaseCategory(): Response<BaseResponse<BaseCategoryDto>>
     //endregion
 
     //region Cart

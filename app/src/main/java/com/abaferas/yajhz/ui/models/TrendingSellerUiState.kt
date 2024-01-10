@@ -1,10 +1,8 @@
 package com.abaferas.yajhz.ui.models
 
 
-import com.google.gson.annotations.SerializedName
-
-data class PopularSellerUiState(
-    val `data`: List<Data>,
+data class TrendingSellerUiState(
+    val `data`: List<Data>
 ) {
     data class Data(
         val id: Int,
@@ -14,7 +12,7 @@ data class PopularSellerUiState(
         val image: String,
         val logo: String,
         val description: String,
-        val distance: Int,
+        val distance: String,
         val type: Int,
         val status: Int,
         val lat: String,
@@ -58,4 +56,3 @@ data class PopularSellerUiState(
         )
     }
 }
-

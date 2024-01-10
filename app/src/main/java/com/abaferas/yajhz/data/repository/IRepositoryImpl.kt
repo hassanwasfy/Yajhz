@@ -1,6 +1,5 @@
 package com.abaferas.yajhz.data.repository
 
-import com.abaferas.yajhz.data.mappers.toDomain
 import com.abaferas.yajhz.data.mappers.toDomainModel
 import com.abaferas.yajhz.data.models.auth.BaseResponse
 import com.abaferas.yajhz.data.models.auth.LoginBody
@@ -8,7 +7,11 @@ import com.abaferas.yajhz.data.models.auth.SignUpBody
 import com.abaferas.yajhz.data.service.ApiService
 import com.abaferas.yajhz.data.service.TokenProvider
 import com.abaferas.yajhz.domain.models.Auth
+import com.abaferas.yajhz.domain.models.BaseCategory
 import com.abaferas.yajhz.domain.models.Client
+import com.abaferas.yajhz.domain.models.HomeBaseCategory
+import com.abaferas.yajhz.domain.models.PopularSeller
+import com.abaferas.yajhz.domain.models.TrendingSeller
 import retrofit2.Response
 import java.net.UnknownHostException
 import javax.inject.Inject
@@ -43,20 +46,20 @@ class IRepositoryImpl @Inject constructor(
         return wrapBaseResponse { apiService.getClientProfile() }.toDomainModel()
     }
 
-    override suspend fun getHomePopularSeller(): List<PopularSeller> {
-        return wrapBaseResponse { apiService.getHomePopularSeller() }.toDomain()
+    override suspend fun getHomePopularSeller(): PopularSeller {
+        return wrapBaseResponse { apiService.getHomePopularSeller() }.toDomainModel()
     }
 
-    override suspend fun getHomeTrendingSeller(): List<PopularSeller> {
-        return wrapBaseResponse { apiService.getHomeTrendingSeller() }.toDomain()
+    override suspend fun getHomeTrendingSeller(): TrendingSeller {
+        return wrapBaseResponse { apiService.getHomeTrendingSeller() }.toDomainModel()
     }
 
-    override suspend fun getHomeBaseCategory(): HomeCategory {
+    override suspend fun getHomeBaseCategory(): HomeBaseCategory {
         return wrapBaseResponse { apiService.getHomeBaseCategory() }.toDomainModel()
     }
 
-    override suspend fun getBaseCategory(): List<ProductCategory> {
-        return wrapBaseResponse { apiService.getBaseCategory() }.toDomain()
+    override suspend fun getBaseCategory(): BaseCategory {
+        return wrapBaseResponse { apiService.getBaseCategory() }.toDomainModel()
     }
 
     override suspend fun addItemToCart(): PopularSeller {
