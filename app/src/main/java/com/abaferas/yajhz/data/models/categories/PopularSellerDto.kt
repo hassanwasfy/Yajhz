@@ -15,11 +15,11 @@ data class PopularSellerDto(
 ) {
     data class Data(
         @SerializedName("data")
-        val `data`: List<Data> = listOf(),
+        val `data`: List<PopularItem> = listOf(),
         @SerializedName("pagination")
         val pagination: Pagination? = Pagination()
     ) {
-        data class Data(
+        data class PopularItem(
             @SerializedName("id")
             val id: Int? = 0,
             @SerializedName("name")

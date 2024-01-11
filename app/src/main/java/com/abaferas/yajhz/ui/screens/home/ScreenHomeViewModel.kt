@@ -28,6 +28,11 @@ class ScreenHomeViewModel @Inject constructor(
 
     override fun getData() {
         try {
+
+            viewModelScope.launch {
+                Log.i("X-Test",iRepository.getHomePopularSeller().data.toString())
+            }
+
             /*viewModelScope.launch {
                 val cats = async {
                     iRepository.getHomeBaseCategory()

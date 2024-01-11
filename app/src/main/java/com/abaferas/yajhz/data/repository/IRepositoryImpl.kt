@@ -1,9 +1,11 @@
 package com.abaferas.yajhz.data.repository
 
+import android.util.Log
 import com.abaferas.yajhz.data.mappers.toDomainModel
 import com.abaferas.yajhz.data.models.auth.BaseResponse
 import com.abaferas.yajhz.data.models.auth.LoginBody
 import com.abaferas.yajhz.data.models.auth.SignUpBody
+import com.abaferas.yajhz.data.models.categories.PopularSellerDto
 import com.abaferas.yajhz.data.service.ApiService
 import com.abaferas.yajhz.data.service.TokenProvider
 import com.abaferas.yajhz.domain.models.Auth
@@ -62,9 +64,28 @@ class IRepositoryImpl @Inject constructor(
         TODO("Not yet implemented")
     }
 
-    override suspend fun getHomePopularSeller(): PopularSeller {
-        //return wrapBaseResponse { apiService.getHomePopularSeller() }.toDomainModel()
-        TODO("Not yet implemented")
+    override suspend fun getHomePopularSeller(): PopularSellerDto {
+        return try {
+            val body = apiService.getHomePopularSeller().body()
+            if (body != null){
+                Log.e(
+                    "X-TEST",
+                    "msg: ${body.message}, success: ${body.success}")
+                Log.w("X-TEST",body.data.toString())
+
+                // Additional logging
+                body.data.data?.let { dataList ->
+                    Log.d("X-TEST", "Item in dataList: $dataList")
+                }
+                body.data
+            }else {
+                Log.e("X-TEST","Body is Null")
+                throw NullPointerException()
+            }
+        }catch (e: Exception){
+            Log.e("X-TEST",e.message.toString())
+            throw e
+        }
     }
 
     override suspend fun getHomeTrendingSeller(): TrendingSeller {
@@ -90,7 +111,7 @@ class IRepositoryImpl @Inject constructor(
         TODO("Not yet implemented")
     }
 
-    /*private suspend fun <T> wrapBaseResponse(
+    private suspend fun <T> wrapBaseResponse(
         response: suspend () -> Response<BaseResponse<T>>
     ): T {
         try {
@@ -117,7 +138,7 @@ class IRepositoryImpl @Inject constructor(
         } catch (e: UnknownHostException){
             throw YajhzException.UnknownHostException
         }
-    }*/
+    }
 
     private fun tokenizeUserData(name: String, token: String, address: String){
         tokenProvider.setToken(token)
